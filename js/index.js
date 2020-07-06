@@ -39,4 +39,48 @@ const siteContent = {
 
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+logo.setAttribute('src', siteContent["nav"]["img-src"]);
+// logo.toggleAttribute('src');
+// logo.toggleAttribute('alt');
+
+const cta = document.getElementById("cta-img");
+cta.src = siteContent.cta["img-src"];
+const middleImg = document.getElementById("middle-img");
+middleImg.src = siteContent["main-content"]["middle-img-src"]
+
+const header1 = document.querySelector('h1')
+header1.innerHTML = 'Dom <br> Is <br> Awesome';
+
+const button = document.querySelector('button');
+button.innerHTML = siteContent.cta.button;
+
+const nav = document.querySelectorAll('nav');
+const anchors = document.querySelectorAll('a');
+let counter = 1;
+anchors.forEach(text =>{
+  text.innerHTML = siteContent.nav[`nav-item-${counter}`];
+  text.style.color = 'green';
+  counter++;
+})
+
+const mainH4 = document.querySelectorAll('h4');
+const h4Text = [siteContent["main-content"]["features-h4"],siteContent["main-content"]["about-h4"],siteContent["main-content"]["services-h4"],siteContent["main-content"]["product-h4"],siteContent["main-content"]["vision-h4"],siteContent.contact["contact-h4"]]
+
+function loop(element, arr){
+  let i = 0;
+  element.forEach(text =>{
+    text.innerHTML = arr[i];
+    i++;
+  })
+}
+loop(mainH4, h4Text);
+
+const mainP = document.querySelectorAll('p');
+const pText = [siteContent["main-content"]["features-content"],siteContent["main-content"]["about-content"],siteContent["main-content"]["services-content"],siteContent["main-content"]["product-content"],siteContent["main-content"]["vision-content"], siteContent.contact.address, siteContent.contact.phone, siteContent.contact.email, siteContent.footer.copyright]
+loop(mainP, pText);
+
+let a = document.createElement('a');
+nav.appendChild(a);
+
+// topH4s[0].innerHTML = 'Features'
+// // console.log(mainH4);
